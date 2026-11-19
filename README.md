@@ -90,13 +90,9 @@ been measured yet.
 <table>
   <tr><th align="left">Theme</th><th align="left">Project</th><th align="left">What it is, and where it stands</th></tr>
   <tr>
-    <td rowspan="2"><b>Hardware security &amp; RF defense</b></td>
+    <td><b>Hardware security &amp; RF defense</b></td>
     <td><a href="https://github.com/Kavin-Re/HopBench"><b>HopBench</b></a></td>
     <td>Benchmark that scores frequency-hop schedules against a suite of attackers (state recovery, n-gram, Berlekamp-Massey, jammers). Keyed schedules score 99.8 and the LFSR, LCG and xorshift schedules about 20 to 23 out of 100. Scores are relative to this attacker suite, not a security proof. Includes a browser game, "Break the Hop".</td>
-  </tr>
-  <tr>
-    <td><a href="https://github.com/Kavin-Re/ADIS-Detector"><b>ADIS-Detector</b></a></td>
-    <td>Receive-only drone-link detector: an Android app (RF Analyzer fork, GPL) with a Python DSP backend and a React field view, for a phone plus HackRF One. Simulation and unit tests only. Not yet tested on real hardware, and its thresholds are documented placeholders.</td>
   </tr>
   <tr>
     <td rowspan="2"><b>Embedded &amp; RTOS</b></td>
