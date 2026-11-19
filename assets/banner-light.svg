@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 320" width="1280" height="320" role="img" aria-labelledby="t d">
+<title id="t">Kavin K K — Embedded Systems, Hardware Security, RTOS, Applied Cryptography</title>
+<desc id="d">Banner: an oscilloscope screen showing an analog noise trace on channel 1 and the debiased bitstream derived from it on channel 2.</desc>
+<defs>
+  <clipPath id="screen"><rect x="700" y="44" width="536" height="232" rx="10"/></clipPath>
+  <linearGradient id="sweep" x1="0" x2="1">
+    <stop offset="0" stop-color="#0b7a55" stop-opacity="0"/>
+    <stop offset="1" stop-color="#0b7a55" stop-opacity="0.16"/>
+  </linearGradient>
+  <style>
+    .sweep { animation: sweep 7s linear infinite; }
+    @keyframes sweep { from { transform: translateX(-80px); } to { transform: translateX(536px); } }
+    @media (prefers-reduced-motion: reduce) { .sweep { animation: none; opacity: 0; } }
+  </style>
+</defs>
+<rect x="1" y="1" width="1278" height="318" rx="16" fill="#ffffff" stroke="#d0d7de" stroke-width="2"/>
+
+<!-- PCB traces: from the title block to the scope input -->
+<g fill="none" stroke="#cfe6dd" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M64,250H430l34,-34H598l40,-40H700"/>
+  <path d="M64,268H442l34,-34H610l22,22H700"/>
+  <path d="M64,286H520l30,-18"/>
+  <path d="M330,32H560l44,44H700"/>
+</g>
+<g fill="#ffffff" stroke="#cfe6dd" stroke-width="4">
+  <circle cx="64" cy="250" r="6"/><circle cx="64" cy="268" r="6"/><circle cx="64" cy="286" r="6"/>
+  <circle cx="550" cy="268" r="6"/><circle cx="330" cy="32" r="6"/>
+</g>
+
+<!-- Title block -->
+<text x="60" y="118" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif" font-size="64" font-weight="700" fill="#1b2430" letter-spacing="-1">Kavin K K</text>
+<rect x="62" y="138" width="56" height="4" rx="2" fill="#0b7a55"/>
+<rect x="124" y="138" width="20" height="4" rx="2" fill="#a85d00"/>
+<text font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono','DejaVu Sans Mono',monospace" font-size="19" fill="#57626f">
+  <tspan x="60" y="178">Embedded Systems · Hardware Security</tspan>
+  <tspan x="60" y="206">RTOS · Applied Cryptography</tspan>
+</text>
+
+<!-- Scope screen -->
+<rect x="700" y="44" width="536" height="232" rx="10" fill="#fbfcfd" stroke="#d0d7de" stroke-width="2"/>
+<g clip-path="url(#screen)">
+  <g fill="none" stroke-width="1"><path d="M744.7,44V276" stroke="#e7ebef"/><path d="M789.3,44V276" stroke="#e7ebef"/><path d="M834.0,44V276" stroke="#e7ebef"/><path d="M878.7,44V276" stroke="#e7ebef"/><path d="M923.3,44V276" stroke="#e7ebef"/><path d="M968.0,44V276" stroke="#d8dee4"/><path d="M1012.7,44V276" stroke="#e7ebef"/><path d="M1057.3,44V276" stroke="#e7ebef"/><path d="M1102.0,44V276" stroke="#e7ebef"/><path d="M1146.7,44V276" stroke="#e7ebef"/><path d="M1191.3,44V276" stroke="#e7ebef"/><path d="M700,82.7H1236" stroke="#e7ebef"/><path d="M700,121.3H1236" stroke="#e7ebef"/><path d="M700,160.0H1236" stroke="#d8dee4"/><path d="M700,198.7H1236" stroke="#e7ebef"/><path d="M700,237.3H1236" stroke="#e7ebef"/></g>
+  <path d="M708.9,157.0v6 M717.9,157.0v6 M726.8,157.0v6 M735.7,157.0v6 M744.7,157.0v6 M753.6,157.0v6 M762.5,157.0v6 M771.5,157.0v6 M780.4,157.0v6 M789.3,157.0v6 M798.3,157.0v6 M807.2,157.0v6 M816.1,157.0v6 M825.1,157.0v6 M834.0,157.0v6 M842.9,157.0v6 M851.9,157.0v6 M860.8,157.0v6 M869.7,157.0v6 M878.7,157.0v6 M887.6,157.0v6 M896.5,157.0v6 M905.5,157.0v6 M914.4,157.0v6 M923.3,157.0v6 M932.3,157.0v6 M941.2,157.0v6 M950.1,157.0v6 M959.1,157.0v6 M968.0,157.0v6 M976.9,157.0v6 M985.9,157.0v6 M994.8,157.0v6 M1003.7,157.0v6 M1012.7,157.0v6 M1021.6,157.0v6 M1030.5,157.0v6 M1039.5,157.0v6 M1048.4,157.0v6 M1057.3,157.0v6 M1066.3,157.0v6 M1075.2,157.0v6 M1084.1,157.0v6 M1093.1,157.0v6 M1102.0,157.0v6 M1110.9,157.0v6 M1119.9,157.0v6 M1128.8,157.0v6 M1137.7,157.0v6 M1146.7,157.0v6 M1155.6,157.0v6 M1164.5,157.0v6 M1173.5,157.0v6 M1182.4,157.0v6 M1191.3,157.0v6 M1200.3,157.0v6 M1209.2,157.0v6 M1218.1,157.0v6 M1227.1,157.0v6" stroke="#d8dee4" stroke-width="1" fill="none"/>
+  <rect class="sweep" x="700" y="44" width="80" height="232" fill="url(#sweep)"/>
+  <path d="M704.0,132.4 L706.6,106.6 L709.2,125.4 L711.8,128.8 L714.4,125.6 L717.0,127.3 L719.6,112.8 L722.2,113.3 L724.8,112.3 L727.4,122.2 L730.0,121.5 L732.6,118.5 L735.2,120.3 L737.8,154.3 L740.4,148.4 L743.0,133.0 L745.6,116.2 L748.2,117.2 L750.8,135.3 L753.4,132.8 L756.0,117.5 L758.6,101.8 L761.2,103.8 L763.8,107.3 L766.4,119.7 L769.0,125.3 L771.6,118.3 L774.2,110.1 L776.8,115.0 L779.4,100.8 L782.0,122.1 L784.6,96.7 L787.2,125.5 L789.8,123.1 L792.4,110.9 L795.0,137.8 L797.6,117.9 L800.2,122.8 L802.8,92.0 L805.4,106.1 L808.0,121.6 L810.6,114.2 L813.2,118.2 L815.8,133.2 L818.4,107.2 L821.0,111.1 L823.6,120.2 L826.2,120.1 L828.8,113.3 L831.4,114.7 L834.0,117.0 L836.6,116.0 L839.2,112.1 L841.8,114.6 L844.4,133.3 L847.0,126.3 L849.6,122.1 L852.2,135.5 L854.8,130.2 L857.4,113.1 L860.0,120.8 L862.6,128.9 L865.2,112.9 L867.8,120.6 L870.4,112.6 L873.0,112.2 L875.6,116.4 L878.2,115.0 L880.8,116.0 L883.4,115.4 L886.0,121.8 L888.6,121.3 L891.2,128.2 L893.8,137.7 L896.4,137.4 L899.0,143.6 L901.6,133.6 L904.2,129.8 L906.8,135.0 L909.4,130.0 L912.0,117.1 L914.6,113.7 L917.2,104.9 L919.8,124.7 L922.4,109.2 L925.0,132.9 L927.6,138.7 L930.2,129.7 L932.8,137.2 L935.4,140.1 L938.0,109.5 L940.6,105.7 L943.2,122.6 L945.8,120.2 L948.4,124.0 L951.0,135.9 L953.6,133.9 L956.2,135.1 L958.8,124.5 L961.4,110.3 L964.0,112.5 L966.6,118.1 L969.2,122.2 L971.8,127.1 L974.4,126.1 L977.0,128.9 L979.6,118.9 L982.2,125.4 L984.8,113.6 L987.4,101.8 L990.0,115.5 L992.6,133.7 L995.2,129.0 L997.8,135.3 L1000.4,131.1 L1003.0,129.8 L1005.6,114.9 L1008.2,125.0 L1010.8,133.9 L1013.4,115.9 L1016.0,119.4 L1018.6,107.9 L1021.2,121.7 L1023.8,100.3 L1026.4,134.6 L1029.0,149.1 L1031.6,121.6 L1034.2,131.0 L1036.8,138.1 L1039.4,140.7 L1042.0,129.4 L1044.6,143.7 L1047.2,113.9 L1049.8,107.5 L1052.4,123.5 L1055.0,130.0 L1057.6,119.6 L1060.2,132.2 L1062.8,128.2 L1065.4,126.6 L1068.0,115.0 L1070.6,127.2 L1073.2,119.5 L1075.8,113.0 L1078.4,103.7 L1081.0,123.7 L1083.6,125.9 L1086.2,104.7 L1088.8,117.3 L1091.4,100.7 L1094.0,114.6 L1096.6,130.3 L1099.2,95.4 L1101.8,97.4 L1104.4,115.8 L1107.0,114.6 L1109.6,118.5 L1112.2,126.7 L1114.8,113.4 L1117.4,117.0 L1120.0,120.9 L1122.6,135.2 L1125.2,126.6 L1127.8,125.1 L1130.4,116.7 L1133.0,115.8 L1135.6,110.7 L1138.2,122.3 L1140.8,130.8 L1143.4,139.8 L1146.0,130.2 L1148.6,135.5 L1151.2,110.8 L1153.8,116.9 L1156.4,118.2 L1159.0,118.9 L1161.6,111.7 L1164.2,141.6 L1166.8,129.3 L1169.4,121.3 L1172.0,132.6 L1174.6,125.1 L1177.2,139.1 L1179.8,107.6 L1182.4,119.5 L1185.0,119.2 L1187.6,97.9 L1190.2,122.2 L1192.8,123.4 L1195.4,123.5 L1198.0,134.3 L1200.6,102.1 L1203.2,122.8 L1205.8,120.8 L1208.4,136.4 L1211.0,139.7 L1213.6,112.7 L1216.2,123.6 L1218.8,135.6 L1221.4,129.6 L1224.0,109.1 L1226.6,115.7 L1229.2,113.1 L1231.8,138.8" fill="none" stroke="#0b7a55" stroke-width="1.6" stroke-linejoin="round"/>
+  <path d="M720.0,234.0 H740.7 V194.0 H761.3 H782.0 V234.0 H802.7 H823.3 H844.0 V194.0 H864.7 V234.0 H885.3 V194.0 H906.0 H926.7 V234.0 H947.3 H968.0 V194.0 H988.7 V234.0 H1009.3 V194.0 H1030.0 V234.0 H1050.7 H1071.3 V194.0 H1092.0 H1112.7 H1133.3 V234.0 H1154.0 V194.0 H1174.7 H1195.3 H1216.0" fill="none" stroke="#a85d00" stroke-width="2.4" stroke-linejoin="round"/>
+  <g font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono','DejaVu Sans Mono',monospace" font-size="11" fill="#8793a0"><text x="730.3" y="262" text-anchor="middle">0</text><text x="751.0" y="262" text-anchor="middle">1</text><text x="771.7" y="262" text-anchor="middle">1</text><text x="792.3" y="262" text-anchor="middle">0</text><text x="813.0" y="262" text-anchor="middle">0</text><text x="833.7" y="262" text-anchor="middle">0</text><text x="854.3" y="262" text-anchor="middle">1</text><text x="875.0" y="262" text-anchor="middle">0</text><text x="895.7" y="262" text-anchor="middle">1</text><text x="916.3" y="262" text-anchor="middle">1</text><text x="937.0" y="262" text-anchor="middle">0</text><text x="957.7" y="262" text-anchor="middle">0</text><text x="978.3" y="262" text-anchor="middle">1</text><text x="999.0" y="262" text-anchor="middle">0</text><text x="1019.7" y="262" text-anchor="middle">1</text><text x="1040.3" y="262" text-anchor="middle">0</text><text x="1061.0" y="262" text-anchor="middle">0</text><text x="1081.7" y="262" text-anchor="middle">1</text><text x="1102.3" y="262" text-anchor="middle">1</text><text x="1123.0" y="262" text-anchor="middle">1</text><text x="1143.7" y="262" text-anchor="middle">0</text><text x="1164.3" y="262" text-anchor="middle">1</text><text x="1185.0" y="262" text-anchor="middle">1</text><text x="1205.7" y="262" text-anchor="middle">1</text></g>
+</g>
+<g font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono','DejaVu Sans Mono',monospace" font-size="12" font-weight="600">
+  <text x="714" y="66" fill="#0b7a55">CH1  ANALOG NOISE</text>
+  <text x="714" y="182" fill="#a85d00">CH2  DEBIASED BITS</text>
+  <text x="1222" y="66" fill="#8793a0" text-anchor="end">TRIG'D</text>
+</g>
+<circle cx="1164" cy="62" r="4" fill="#0b7a55"/>
+</svg>
