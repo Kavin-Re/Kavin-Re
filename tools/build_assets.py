@@ -271,7 +271,48 @@ def art_gnss() -> str:
             f'<text x="324" y="103" font-family="{MONO}" font-size="9" fill="{{faint}}">C/N0</text>')
 
 
-# Order here is the order of the featured grid in README.md.
+def art_glitchsat() -> str:
+    # three copies of one register bit feeding a majority voter; a dashed line crosses all three copies
+    out = []
+    for k, y in enumerate((34, 58, 82)):
+        out.append(f'<rect x="326" y="{y}" width="34" height="18" rx="3" fill="none" stroke="{{faint}}" stroke-width="1.5"/>')
+        out.append(f'<text x="343" y="{y + 13}" text-anchor="middle" font-family="{MONO}" font-size="10" fill="{{muted}}">q{k}</text>')
+        out.append(f'<path d="M360,{y + 9}H392" stroke="{{faint}}" stroke-width="1.5"/>')
+    out.append('<path d="M392,40L428,58V76L392,94Z" fill="none" stroke="{a}" stroke-width="2" stroke-linejoin="round"/>')
+    out.append(f'<text x="406" y="71" font-family="{MONO}" font-size="9" fill="{{muted}}">maj</text>')
+    out.append('<path d="M428,67H456" stroke="{a}" stroke-width="2"/>')
+    out.append('<path d="M318,28L372,108" stroke="{a}" stroke-width="1.4" stroke-dasharray="3 3"/>')
+    out.append(f'<text x="318" y="122" font-family="{MONO}" font-size="9" fill="{{faint}}">one event, three copies?</text>')
+    return "".join(out)
+
+
+def art_sad() -> str:
+    # an 8x8 block of absolute differences, a few cells highlighted, feeding a sum
+    x0, y0, c = 322, 30, 10
+    rng = random.Random(8810)
+    out = []
+    for r in range(8):
+        for q in range(8):
+            hot = rng.random() < 0.22
+            out.append(f'<rect x="{x0 + q * c}" y="{y0 + r * c}" width="{c - 2}" height="{c - 2}" rx="1.5" '
+                       f'fill="{{{"a" if hot else "grid2"}}}"/>')
+    out.append('<path d="M406,70H430" stroke="{faint}" stroke-width="1.5"/>')
+    out.append(f'<text x="444" y="76" text-anchor="middle" font-family="{SANS}" font-size="20" fill="{{a}}">Σ</text>')
+    out.append(f'<text x="322" y="122" font-family="{MONO}" font-size="9" fill="{{faint}}">8x8 SAD</text>')
+    return "".join(out)
+
+
+def art_vcd() -> str:
+    # three digital waveforms: a clock, a data bit and a bus
+    clk = bits_path(318, 36, 50, 8.6, "1010101010101010")
+    dat = bits_path(318, 66, 80, 8.6, "0011100001111000")
+    bus = ('<path d="M318,96H352L356,104L352,112H318M356,104L360,96H404L408,104L404,112H360M408,104L412,96H456'
+           'M412,112H456" fill="none" stroke="{a}" stroke-width="1.5" stroke-linejoin="round"/>')
+    return (f'<path d="{clk}" fill="none" stroke="{{faint}}" stroke-width="1.6"/>'
+            f'<path d="{dat}" fill="none" stroke="{{a}}" stroke-width="1.8"/>' + bus)
+
+
+# Order here is the order of the featured grid in README.md: three flagships, then three supporting projects.
 CARDS = {
     "haptic-sense": dict(
         title="Haptic-Sense", kicker="TRON CONTEST 2026 · ENTRY 34476", accent="ch2",
@@ -280,12 +321,26 @@ CARDS = {
         tech=["STM32N6", "µT-Kernel 3.0", "NPU", "TinyML"], art=art_haptic(),
         desc="Haptic-Sense: TRON Forum Programming Contest 2026 entry 34476. Predictive obstacle-alert benchtop prototype on STM32N6570-DK running µT-Kernel 3.0. Worst-case preemption latency 3.375 microseconds, measured with a logic analyzer.",
     ),
+    "glitchsat": dict(
+        title="GlitchSAT", kicker="FAULT ANALYSIS · MODEL ONLY", accent="ch1",
+        hook=["Finds the fewest modelled bit flips", "that defeat a protection in a netlist.", "2.0 asks: does timing change that?"],
+        metric="1 · 1 · 3", unit="modelled flips", caption="designs V0 / V1 / V2 · single-bit model M0",
+        tech=["Python", "Yosys", "SAT", "netlists"], art=art_glitchsat(),
+        desc="GlitchSAT: an open-source fault-analysis tool for gate-level netlists that searches for the smallest number of modelled bit flips that defeat a protection. Under its single-bit model M0, the three reference designs need 1, 1 and 3 modelled bit flips. These are model results, not physical glitches; version 2.0 asks whether adding timing changes the verdict on one real protected block.",
+    ),
+    "sad-paper": dict(
+        title="Approximate SAD", kicker="RESEARCH INTERNSHIP · MANUSCRIPT", accent="ch2",
+        hook=["Approximate compressor cells in an", "8x8 SAD datapath, tested inside", "real video encoders."],
+        metric="x264+x265", unit="encoders", caption="Vivado + Genus synthesis · not yet submitted",
+        tech=["Verilog", "Icarus", "C", "Python"], art=art_sad(),
+        desc="Approximate SAD: research internship work on approximate compressor cells in a shared 8x8 sum-of-absolute-differences datapath for video motion estimation, synthesised and run inside the x264 and x265 encoders. Manuscript in preparation, not yet submitted; the repository is private.",
+    ),
     "phyrand": dict(
-        title="PhyRand", kicker="HARDWARE SECURITY · TRNG", accent="ch1",
-        hook=["Zener-diode breakdown noise, sampled", "and Von Neumann-debiased on an STM32,", "feeding a key authority and file vault."],
-        metric="7.9997", unit="bits/byte", caption="entropy · ent suite · NIST SP 800-22 pending",
+        title="PhyRand", kicker="HARDWARE SECURITY · ENTROPY SOURCE", accent="ch1",
+        hook=["Zener-diode noise, sampled and", "Von Neumann-debiased on an STM32.", "The source is not yet validated."],
+        metric="7.9997", unit="bits/byte", caption="Shannon, 1 MB · same capture fails chi-square",
         tech=["STM32F401RE", "C", "FastAPI", "Fernet"], art=art_phyrand(),
-        desc="PhyRand: Zener-diode noise true random number generator on STM32F401RE with a FastAPI key authority and Fernet file vault. Measured entropy 7.9997 bits per byte with the ent suite; NIST SP 800-22 testing is pending.",
+        desc="PhyRand: Zener-diode noise source on an STM32F401RE with Von Neumann debiasing, a health-tested key pipeline and a file vault. A 1 MB capture has a Shannon entropy of 7.9997 bits per byte, computed with the repository's own analysis; the same capture fails a chi-square test (p = 0.0009). The noise source is unvalidated.",
     ),
     "fhss-link": dict(
         title="FHSS-Link", kicker="RF RESILIENCE · SIMULATION + RTL", accent="ch1",
@@ -294,26 +349,12 @@ CARDS = {
         tech=["Python", "Verilog", "C", "SymbiYosys"], art=art_fhss(),
         desc="FHSS-Link: simulation study of a frequency-hopping link under interference. An attacker model recovers a 16-bit LFSR hop schedule after 8 or 9 observed hops, exhaustively over all 65,535 seeds; a keyed SipHash-2-4 hop engine in Verilog replaces it. Simulation, RTL and host-tested C only; nothing has run on a radio.",
     ),
-    "rtl-sec-lab": dict(
-        title="RTL-Sec-Lab", kicker="HARDWARE SECURITY · WORKSHOP KIT", accent="ch2",
-        hook=["Six graded labs on one small keyed", "hop engine: LFSR break, CPA, masking,", "faults and TMR, trojans, PUF."],
-        metric="39/39", unit="graded tasks", caption="reference solutions pass · 6 labs · simulation only",
-        tech=["Python", "NumPy", "Verilog", "SipHash"], art=art_seclab(),
-        desc="RTL-Sec-Lab: a self-contained three-hour hardware-security workshop kit with six labs on a small keyed hop engine: LFSR state recovery, correlation power analysis, masking, fault injection and TMR, trojan detection and a PUF key source. All 39 reference-solution tasks pass the graders. Simulation only, with assumed leakage and fault models.",
-    ),
-    "approxkit": dict(
-        title="ApproxKit", kicker="DIGITAL DESIGN · APPROX. COMPUTING", accent="ch1",
-        hook=["Approximate adders and multipliers:", "bit-accurate Python models, Verilog,", "error metrics and a Pareto explorer."],
-        metric="173/173", unit="RTL cases", caption="Verilog = Python model on every operand pair",
-        tech=["Python", "Verilog", "Icarus", "Yosys"], art=art_approx(),
-        desc="ApproxKit: bit-accurate Python models, error metrics, a Pareto design-space explorer and Verilog implementations of approximate adders and multipliers. 173 of 173 RTL configurations match the Python models exhaustively over every operand pair in Icarus Verilog. Area figures are synthesis estimates, not silicon.",
-    ),
-    "gnss-sentinel": dict(
-        title="GNSS-Sentinel", kicker="RF DEFENSE · PASSIVE · LOGS ONLY", accent="ch2",
-        hook=["Flags GNSS jamming and spoofing", "indicators in receiver logs with six", "fused detectors. Never transmits."],
-        metric="0.74–1.00", unit="P(detect)", caption="fused, 5 attack scenarios · synthetic data only",
-        tech=["Python", "NumPy", "NMEA", "Kalman"], art=art_gnss(),
-        desc="GNSS-Sentinel: a passive toolkit that flags GNSS interference and spoofing indicators from receiver-level logs using six fused detectors. On the repository's own synthetic data, fused detection probability is 1.00 for four attack scenarios and 0.74 for slow position drag. Not validated on a real receiver.",
+    "vcd-studio": dict(
+        title="VCD-Studio", kicker="TOOLS · WAVEFORM VIEWER", accent="ch2",
+        hook=["Waveform viewer for Verilog .vcd", "dumps in a single HTML file. Nothing", "to install, nothing uploaded."],
+        metric="1", unit="HTML file", caption="0 network requests · 0 runtime dependencies",
+        tech=["JavaScript", "Python", "VCD"], art=art_vcd(),
+        desc="VCD-Studio: a waveform viewer for Verilog VCD dumps that is one offline HTML file, with a signal tree, cursors, search, clock measurements and a short-pulse finder, plus a standard-library Python script for toggle counts.",
     ),
 }
 

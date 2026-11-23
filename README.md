@@ -8,30 +8,22 @@
 ### Hi, I'm Kavin.
 
 I'm an electronics engineer (B.Tech Electronics Engineering, VLSI, at Rashtriya Raksha University) who
-works where firmware, digital logic and security meet: pulling entropy out of a noisy diode, getting a
-hazard alert through an RTOS in microseconds, breaking a weak hop schedule and replacing it in Verilog,
-and checking approximate arithmetic bit for bit against its model.
+works where firmware, digital logic and security meet.
 
-I care about measured results and about saying what kind of result each one is. Two projects below ran
-on real hardware (Haptic-Sense, PhyRand). The rest are simulation, RTL and host-tested code, and are
-labelled that way. Where a number appears, the repository says how it was produced and what has not
-been measured yet.
+**What ties the work together:** I test whether a hardware claim holds up against the real thing: a latency
+claim against a logic analyzer, an error metric against real video encoders, and a redundancy countermeasure
+against the physics of a glitch (that last one is work in progress).
+
+I say what kind of result each number is. Two projects below ran on real hardware (Haptic-Sense and
+PhyRand). The rest are simulation, synthesis or host-tested code, and are labelled that way. Where a number
+appears, the repository says how it was produced and what has not been measured yet.
 
 **Open to embedded firmware, RTOS, digital design and hardware-security roles.**
 [Connect on LinkedIn](https://www.linkedin.com/in/kavinkk-vlsi-embedded)
 
-## What I build
+## Projects
 
-| Area | What that has meant so far |
-|---|---|
-| **Hardware security** | A true random number generator built from Zener-diode breakdown noise with on-chip Von Neumann debiasing; a keyed SipHash-2-4 hop engine in Verilog checked against a Python model and with SymbiYosys; a workshop kit covering state recovery, correlation power analysis, masking, fault injection and PUFs on simulated models. |
-| **RF resilience and defense** | Frequency-hopping link simulators with attacker models, a benchmark that scores hop schedules against those attackers, and passive, receive-only detectors for GNSS interference and drone links. All simulation so far; none of it transmits. |
-| **Real-time firmware** | A four-task µT-Kernel 3.0 application on a Cortex-M55 with preemption latency measured two ways (logic analyzer and in-firmware cycle counter); bare-metal STM32F4 work with UART parsing, FatFS over SPI and an OLED; C99 protocol references with no dynamic allocation, tested under sanitizers and fuzzing on the host. |
-| **Digital design and approximate computing** | Approximate adders and multipliers as bit-accurate Python models plus Verilog, compared exhaustively in Icarus Verilog and synthesised with Yosys; approximate SAD datapaths for video motion estimation; an int8 inference datapath with approximate multipliers. |
-| **Edge ML on MCUs** | A small INT8 fully-connected model trained in Edge Impulse and run on the STM32N6 Neural-ART NPU, backed by a deterministic safety rule. |
-| **Tooling** | A single-file browser waveform viewer for VCD dumps, serial capture and analysis scripts, and a local-LLM shell assistant. |
-
-## Featured projects
+Three flagships and three supporting projects.
 
 <p align="center">
   <a href="https://github.com/Kavin-Re/Haptic-Sense">
@@ -40,10 +32,22 @@ been measured yet.
       <img src="assets/card-haptic-sense-light.svg" width="49%" alt="Haptic-Sense: µT-Kernel 3.0 on STM32N6, 3.375 µs worst-case preemption latency (logic analyzer)">
     </picture>
   </a>
-  <a href="https://github.com/Kavin-Re/phyrand">
+  <a href="https://github.com/Kavin-Re/GlitchSAT-Redundancy">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="assets/card-glitchsat-dark.svg">
+      <img src="assets/card-glitchsat-light.svg" width="49%" alt="GlitchSAT: fault analysis of gate-level netlists; the three reference designs need 1, 1 and 3 modelled bit flips under the single-bit model M0 (model results, not physical glitches)">
+    </picture>
+  </a>
+</p>
+<p align="center">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="assets/card-sad-paper-dark.svg">
+      <img src="assets/card-sad-paper-light.svg" width="49%" alt="Approximate SAD: approximate compressor cells in an 8x8 SAD datapath, tested in the x264 and x265 encoders; manuscript in preparation (repository private)">
+    </picture>
+  <a href="https://github.com/Kavin-Re/PhyRand">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="assets/card-phyrand-dark.svg">
-      <img src="assets/card-phyrand-light.svg" width="49%" alt="PhyRand: Zener-noise TRNG on STM32F401RE, 7.9997 bits/byte entropy (ent suite)">
+      <img src="assets/card-phyrand-light.svg" width="49%" alt="PhyRand: Zener-diode noise source on STM32F401RE, 7.9997 bits/byte Shannon entropy on a 1 MB capture computed by the repository's own analysis; the same capture fails chi-square; the source is unvalidated">
     </picture>
   </a>
 </p>
@@ -54,70 +58,41 @@ been measured yet.
       <img src="assets/card-fhss-link-light.svg" width="49%" alt="FHSS-Link: frequency-hopping link study; a 16-bit LFSR hop schedule is broken after 8 to 9 observed hops, replaced by a keyed SipHash engine in Verilog (simulation and RTL)">
     </picture>
   </a>
-  <a href="https://github.com/Kavin-Re/RTL-Sec-Lab">
+  <a href="https://github.com/Kavin-Re/VCD-Studio">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="assets/card-rtl-sec-lab-dark.svg">
-      <img src="assets/card-rtl-sec-lab-light.svg" width="49%" alt="RTL-Sec-Lab: six-lab hardware-security workshop kit, 39 of 39 reference-solution tasks pass the graders (simulation only)">
+      <source media="(prefers-color-scheme: dark)" srcset="assets/card-vcd-studio-dark.svg">
+      <img src="assets/card-vcd-studio-light.svg" width="49%" alt="VCD-Studio: waveform viewer for VCD dumps in one offline HTML file">
     </picture>
   </a>
 </p>
-<p align="center">
-  <a href="https://github.com/Kavin-Re/ApproxKit">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="assets/card-approxkit-dark.svg">
-      <img src="assets/card-approxkit-light.svg" width="49%" alt="ApproxKit: approximate adders and multipliers, 173 of 173 Verilog cases match the Python models on every operand pair">
-    </picture>
-  </a>
-  <a href="https://github.com/Kavin-Re/GNSS-Sentinel">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="assets/card-gnss-sentinel-dark.svg">
-      <img src="assets/card-gnss-sentinel-light.svg" width="49%" alt="GNSS-Sentinel: passive GNSS jamming and spoofing indicator toolkit, fused detection probability 0.74 to 1.00 across five scenarios (synthetic data only)">
-    </picture>
-  </a>
-</p>
+
+### Flagships
 
 | Project | In one line | Honest status |
 |---|---|---|
-| [**Haptic-Sense**](https://github.com/Kavin-Re/Haptic-Sense) | Predictive obstacle-alert prototype for visually impaired users on an STM32N6570-DK running µT-Kernel 3.0. TRON Forum Programming Contest 2026, entry 34476. | **Hardware.** Worst-case preemption latency 3.375 µs (logic analyzer) and 4.19 µs (cycle counter, 30-minute soak). These time the task handoff, not sensor-to-motor latency. Benchtop prototype, urgency feedback only, no direction. |
-| [**PhyRand**](https://github.com/Kavin-Re/phyrand) | Zener-noise TRNG on an STM32F401RE, with a FastAPI key authority and Fernet file vault. | **Hardware.** 7.9997 bits/byte measured with `ent`. NIST SP 800-22 is still pending, and the analog noise has not been characterised on an oscilloscope. |
-| [**FHSS-Link**](https://github.com/Kavin-Re/FHSS-Link) | Frequency-hopping link study: link and attacker simulators, a keyed SipHash-2-4 hop engine in Verilog, and a C firmware reference. | **Simulation, RTL and host C.** An attacker model recovers a 16-bit LFSR hop schedule after 8 or 9 observed hops (exhaustive over all 65,535 seeds), while the keyed schedule stays at chance. Synthesis figures are Yosys estimates. Nothing has run on an ESP32 or any radio yet. |
-| [**RTL-Sec-Lab**](https://github.com/Kavin-Re/RTL-Sec-Lab) | Three-hour hardware-security workshop kit: six labs with handouts, starters, graders and answer keys, built around a small keyed hop engine. | **Simulation only.** All 39 reference-solution tasks pass the graders. Leakage, fault, trojan and PUF behaviour are simple assumed models, and every handout says so. |
-| [**ApproxKit**](https://github.com/Kavin-Re/ApproxKit) | Approximate adders and multipliers: bit-accurate Python models, error metrics, a Pareto design-space explorer and Verilog. | **Simulation and synthesis estimates.** 173 of 173 Verilog cases match the Python models on every operand pair (Icarus Verilog). Area numbers are Yosys + sky130 estimates without place and route, not silicon. |
-| [**GNSS-Sentinel**](https://github.com/Kavin-Re/GNSS-Sentinel) | Passive toolkit that flags GNSS jamming and spoofing indicators from receiver logs (CSV or NMEA) with six fused detectors. It never transmits. | **Synthetic data only.** Fused detection probability is 1.00 for four attack scenarios and 0.74 for slow position drag, at about 1.1 false alerts per hour. A noisier test profile raises that to about 7 per hour. Not validated on a real receiver. |
+| [**Haptic-Sense**](https://github.com/Kavin-Re/Haptic-Sense) | Predictive obstacle-alert prototype for visually impaired users on an STM32N6570-DK running µT-Kernel 3.0. TRON Forum Programming Contest 2026, entry 34476. | **Hardware, measured. Frozen.** Worst-case preemption latency 3.375 µs (logic analyzer) and 4.19 µs (cycle counter, 30-minute soak). These time the task handoff, not sensor-to-motor latency. Benchtop prototype, urgency feedback only, no direction. |
+| [**GlitchSAT**](https://github.com/Kavin-Re/GlitchSAT-Redundancy) | Open-source fault-analysis tool for gate-level netlists: finds the smallest number of modelled bit flips that defeat a protection, checks whether a protection survived synthesis, and explains the result in a teaching app. | **Model only.** Nothing was measured on hardware. The current model flips single bits independently, so it does not cover one glitch upsetting several flip-flops, or all copies, at once. Version 2.0 asks one question: does adding timing change the verdict on one real protected block? |
+| **Approximate-SAD paper** | Research internship at NIT Delhi (summer 2026): approximate compressor cells in a shared 8x8 SAD datapath for video motion estimation, synthesised and run inside the x264 and x265 encoders. | **Simulation, synthesis and real encoders.** Manuscript in preparation, not yet submitted. The repository stays private until publication. |
 
-## More projects
+### Supporting
 
-<table>
-  <tr><th align="left">Theme</th><th align="left">Project</th><th align="left">What it is, and where it stands</th></tr>
-  <tr>
-    <td><b>Hardware security &amp; RF defense</b></td>
-    <td><a href="https://github.com/Kavin-Re/HopBench"><b>HopBench</b></a></td>
-    <td>Benchmark that scores frequency-hop schedules against a suite of attackers (state recovery, n-gram, Berlekamp-Massey, jammers). Keyed schedules score 99.8 and the LFSR, LCG and xorshift schedules about 20 to 23 out of 100. Scores are relative to this attacker suite, not a security proof. Includes a browser game, "Break the Hop".</td>
-  </tr>
-  <tr>
-    <td rowspan="2"><b>Embedded &amp; RTOS</b></td>
-    <td><a href="https://github.com/Kavin-Re/UAV-DAQ"><b>UAV-DAQ</b></a></td>
-    <td>STM32F401RE telemetry logger: parses a UART stream, logs CSV to SD with FatFS over SPI, shows values and rates of change on an OLED. Bench prototype fed by a replayed ArduPilot log; host-tested, and the SD-logging fix still awaits a hardware re-test. Not flight-tested.</td>
-  </tr>
-  <tr>
-    <td><a href="https://github.com/Kavin-Re/LifeLine-Mesh"><b>LifeLine-Mesh</b></a></td>
-    <td>Store-and-forward mesh protocol for short messages when infrastructure is down: specification, Python simulator and a C99 reference with no dynamic allocation. C and Python agree on 288,113 shared-vector checks. In simulation, custody transfer delivers 1.00 against 0.69 for flooding in the default scenario. No hardware or RF yet.</td>
-  </tr>
-  <tr>
-    <td><b>Digital design &amp; approximate computing</b></td>
-    <td><a href="https://github.com/Kavin-Re/PolarFire-VibMonitor"><b>PolarFire-VibMonitor</b></a></td>
-    <td>Software model of a 32-channel vibration monitor: fixed-point feature extraction, an int8 MLP, approximate multipliers and a Verilog MAC-array skeleton. About 97 % accuracy on its own synthetic test set. The RTL testbench passes 325,161 checks against the Python model. No FPGA has been touched.</td>
-  </tr>
-  <tr>
-    <td rowspan="2"><b>Tools</b></td>
-    <td><a href="https://github.com/Kavin-Re/VCD-Studio"><b>VCD-Studio</b></a></td>
-    <td>Single-file, offline waveform viewer for VCD dumps that runs in the browser, plus a stdlib Python script for per-signal toggle counts and a switching-activity proxy.</td>
-  </tr>
-  <tr>
-    <td><a href="https://github.com/Kavin-Re/shell-sage"><b>shell-sage</b></a></td>
-    <td>Python CLI that turns a plain-English request into a bash command using a local Ollama model, with a warning on risky commands.</td>
-  </tr>
-</table>
+| Project | In one line | Honest status |
+|---|---|---|
+| [**PhyRand**](https://github.com/Kavin-Re/PhyRand) | Zener-diode noise source on an STM32F401RE with Von Neumann debiasing, a health-tested key pipeline and a file vault. | **Hardware, source unvalidated.** A 1 MB capture has 7.9997 bits/byte Shannon entropy (computed with the repository's own analysis), and the same capture fails chi-square (p = 0.0009). The control run with the diode removed has not been done. |
+| [**FHSS-Link**](https://github.com/Kavin-Re/FHSS-Link) | Frequency-hopping link study: link and attacker simulators, a keyed SipHash-2-4 hop engine in Verilog, a C reference, and the HopBench schedule benchmark. | **Simulation, RTL and host C. Frozen.** An attacker model recovers a 16-bit LFSR hop schedule after 8 or 9 observed hops (exhaustive over all 65,535 seeds); the keyed schedule stays at chance against that attacker. Nothing has run on a radio. |
+| [**VCD-Studio**](https://github.com/Kavin-Re/VCD-Studio) | Waveform viewer for Verilog `.vcd` dumps in one offline HTML file, plus a standard-library script for toggle counts. | **Tool. Frozen.** Works on any `.vcd` in a browser with nothing installed. GTKWave and Surfer do more. |
+
+Every other repository on this account is frozen or archived, and its README says which and why.
+
+## What I build
+
+| Area | What that has meant so far |
+|---|---|
+| **Hardware security** | A noise source built from Zener-diode breakdown with on-chip Von Neumann debiasing; a keyed SipHash-2-4 hop engine in Verilog checked against a Python model and with SymbiYosys; a fault-analysis tool that searches netlists for the fewest modelled bit flips that defeat a protection. |
+| **Real-time firmware** | A four-task µT-Kernel 3.0 application on a Cortex-M55 with preemption latency measured two ways (logic analyzer and in-firmware cycle counter); a first bare-metal STM32F4 project that parses UART telemetry onto an OLED (its SD logging never worked); C99 protocol references with no dynamic allocation, tested under sanitizers on the host. |
+| **Digital design and approximate computing** | Approximate SAD datapaths for video motion estimation, synthesised and tested inside real encoders; approximate adders and multipliers as bit-accurate Python models plus Verilog, compared exhaustively in Icarus Verilog. |
+| **Edge ML on MCUs** | A small INT8 model trained in Edge Impulse and run on the STM32N6 Neural-ART NPU, backed by a deterministic safety rule. |
+| **Tooling** | A single-file browser waveform viewer for VCD dumps, and serial capture and analysis scripts. |
 
 ## Tech stack
 
@@ -127,16 +102,16 @@ been measured yet.
   <tr><td><b>RTOS &amp; firmware</b></td><td><img src="https://img.shields.io/badge/%C2%B5T--Kernel%203.0-a85d00?style=flat-square" alt="µT-Kernel 3.0"> <img src="https://img.shields.io/badge/STM32%20HAL-a85d00?style=flat-square" alt="STM32 HAL"> <img src="https://img.shields.io/badge/FatFS-a85d00?style=flat-square" alt="FatFS"> <img src="https://img.shields.io/badge/STM32CubeIDE-a85d00?style=flat-square" alt="STM32CubeIDE"></td></tr>
   <tr><td><b>RTL &amp; verification</b></td><td><img src="https://img.shields.io/badge/Icarus%20Verilog-0b7a55?style=flat-square" alt="Icarus Verilog"> <img src="https://img.shields.io/badge/Verilator-0b7a55?style=flat-square" alt="Verilator"> <img src="https://img.shields.io/badge/Yosys-0b7a55?style=flat-square" alt="Yosys"> <img src="https://img.shields.io/badge/SymbiYosys%20%28formal%29-0b7a55?style=flat-square" alt="SymbiYosys (formal)"> <img src="https://img.shields.io/badge/sky130%20synthesis%20estimates-0b7a55?style=flat-square" alt="sky130 synthesis estimates"></td></tr>
   <tr><td><b>Buses &amp; peripherals</b></td><td><img src="https://img.shields.io/badge/I2C-3a4654?style=flat-square" alt="I2C"> <img src="https://img.shields.io/badge/SPI-3a4654?style=flat-square" alt="SPI"> <img src="https://img.shields.io/badge/UART-3a4654?style=flat-square" alt="UART"> <img src="https://img.shields.io/badge/ADC-3a4654?style=flat-square" alt="ADC"> <img src="https://img.shields.io/badge/DMA-3a4654?style=flat-square" alt="DMA"></td></tr>
-  <tr><td><b>Security &amp; crypto</b></td><td><img src="https://img.shields.io/badge/TRNG%20/%20entropy%20analysis-0b7a55?style=flat-square" alt="TRNG / entropy analysis"> <img src="https://img.shields.io/badge/Von%20Neumann%20debiasing-0b7a55?style=flat-square" alt="Von Neumann debiasing"> <img src="https://img.shields.io/badge/SipHash--2--4-0b7a55?style=flat-square" alt="SipHash-2-4"> <img src="https://img.shields.io/badge/side--channel%20analysis%20%28simulated%29-0b7a55?style=flat-square" alt="side-channel analysis (simulated)"> <img src="https://img.shields.io/badge/Fernet%20%28AES--128--CBC%20%2B%20HMAC%29-0b7a55?style=flat-square" alt="Fernet (AES-128-CBC + HMAC)"></td></tr>
+  <tr><td><b>Security &amp; crypto</b></td><td><img src="https://img.shields.io/badge/entropy%20analysis-0b7a55?style=flat-square" alt="entropy analysis"> <img src="https://img.shields.io/badge/Von%20Neumann%20debiasing-0b7a55?style=flat-square" alt="Von Neumann debiasing"> <img src="https://img.shields.io/badge/SipHash--2--4-0b7a55?style=flat-square" alt="SipHash-2-4"> <img src="https://img.shields.io/badge/side--channel%20analysis%20%28simulated%29-0b7a55?style=flat-square" alt="side-channel analysis (simulated)"> <img src="https://img.shields.io/badge/Fernet%20%28AES--128--CBC%20%2B%20HMAC%29-0b7a55?style=flat-square" alt="Fernet (AES-128-CBC + HMAC)"></td></tr>
   <tr><td><b>Edge ML</b></td><td><img src="https://img.shields.io/badge/Edge%20Impulse-a85d00?style=flat-square" alt="Edge Impulse"> <img src="https://img.shields.io/badge/TFLite%20INT8-a85d00?style=flat-square" alt="TFLite INT8"> <img src="https://img.shields.io/badge/ST%20Neural--ART-a85d00?style=flat-square" alt="ST Neural-ART"></td></tr>
-  <tr><td><b>Host side</b></td><td><img src="https://img.shields.io/badge/FastAPI-3a4654?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI"> <img src="https://img.shields.io/badge/NumPy-3a4654?style=flat-square&logo=numpy&logoColor=white" alt="NumPy"> <img src="https://img.shields.io/badge/pySerial-3a4654?style=flat-square" alt="pySerial"> <img src="https://img.shields.io/badge/Ollama-3a4654?style=flat-square&logo=ollama&logoColor=white" alt="Ollama"> <img src="https://img.shields.io/badge/Linux-3a4654?style=flat-square&logo=linux&logoColor=white" alt="Linux"> <img src="https://img.shields.io/badge/Git-3a4654?style=flat-square&logo=git&logoColor=white" alt="Git"></td></tr>
+  <tr><td><b>Host side</b></td><td><img src="https://img.shields.io/badge/FastAPI-3a4654?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI"> <img src="https://img.shields.io/badge/NumPy-3a4654?style=flat-square&logo=numpy&logoColor=white" alt="NumPy"> <img src="https://img.shields.io/badge/pySerial-3a4654?style=flat-square" alt="pySerial"> <img src="https://img.shields.io/badge/Linux-3a4654?style=flat-square&logo=linux&logoColor=white" alt="Linux"> <img src="https://img.shields.io/badge/Git-3a4654?style=flat-square&logo=git&logoColor=white" alt="Git"></td></tr>
 </table>
 
 ## Currently
 
-- Working toward NIST SP 800-22 validation of PhyRand's output, the open item in that repository.
-- Taking FHSS-Link from host-only tests to its first run on ESP32 hardware, the open item in that repository.
-- Writing up the approximate-SAD research from the NIT Delhi internship.
+- Working on GlitchSAT 2.0, the minimum version: one question (does adding timing change the verdict on one
+  real protected block?), one design, one short note.
+- Preparing the approximate-SAD manuscript for submission.
 - Looking for a role in embedded systems, digital design or hardware security.
 
 ## Contact
@@ -153,4 +128,4 @@ slow or rate-limited on its public instance. Remove the comment markers around t
 </p>
 -->
 
-<sub>Banner and project cards are hand-written SVG, generated by <a href="tools/build_assets.py"><code>tools/build_assets.py</code></a>. No trackers, no external fonts.</sub>
+<sub>Banner and project cards are SVG files generated by <a href="tools/build_assets.py"><code>tools/build_assets.py</code></a>. No trackers, no external fonts.</sub>
