@@ -331,9 +331,9 @@ CARDS = {
     "sad-paper": dict(
         title="Approximate SAD", kicker="RESEARCH INTERNSHIP · MANUSCRIPT", accent="ch2",
         hook=["Approximate compressor cells in an", "8x8 SAD datapath, tested inside", "real video encoders."],
-        metric="x264+x265", unit="encoders", caption="Vivado + Genus synthesis · not yet submitted",
+        metric="x264+x265", unit="encoders", caption="Vivado + Genus synthesis · not yet published",
         tech=["Verilog", "Icarus", "C", "Python"], art=art_sad(),
-        desc="Approximate SAD: research internship work on approximate compressor cells in a shared 8x8 sum-of-absolute-differences datapath for video motion estimation, synthesised and run inside the x264 and x265 encoders. Manuscript in preparation, not yet submitted; the repository is private.",
+        desc="Approximate SAD: research internship work on approximate compressor cells in a shared 8x8 sum-of-absolute-differences datapath for video motion estimation, synthesised and run inside the x264 and x265 encoders. Co-authored manuscript, not yet published; the repository is private.",
     ),
     "phyrand": dict(
         title="PhyRand", kicker="HARDWARE SECURITY · ENTROPY SOURCE", accent="ch1",

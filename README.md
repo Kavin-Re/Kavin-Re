@@ -42,7 +42,7 @@ Three flagships and three supporting projects.
 <p align="center">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="assets/card-sad-paper-dark.svg">
-      <img src="assets/card-sad-paper-light.svg" width="49%" alt="Approximate SAD: approximate compressor cells in an 8x8 SAD datapath, tested in the x264 and x265 encoders; manuscript in preparation (repository private)">
+      <img src="assets/card-sad-paper-light.svg" width="49%" alt="Approximate SAD: approximate compressor cells in an 8x8 SAD datapath, tested in the x264 and x265 encoders; co-authored manuscript, not yet published (repository private)">
     </picture>
   <a href="https://github.com/Kavin-Re/PhyRand">
     <picture>
@@ -68,15 +68,15 @@ Three flagships and three supporting projects.
 
 ### Flagships
 
-| Project | In one line | Honest status |
+| Project | In one line | Status |
 |---|---|---|
 | [**Haptic-Sense**](https://github.com/Kavin-Re/Haptic-Sense) | Predictive obstacle-alert prototype for visually impaired users on an STM32N6570-DK running µT-Kernel 3.0. TRON Forum Programming Contest 2026, entry 34476. | **Hardware, measured. Frozen.** Worst-case preemption latency 3.375 µs (logic analyzer) and 4.19 µs (cycle counter, 30-minute soak). These time the task handoff, not sensor-to-motor latency. Benchtop prototype, urgency feedback only, no direction. |
 | [**GlitchSAT**](https://github.com/Kavin-Re/GlitchSAT-Redundancy) | Open-source fault-analysis tool for gate-level netlists: finds the smallest number of modelled bit flips that defeat a protection, checks whether a protection survived synthesis, and explains the result in a teaching app. | **Model only.** Nothing was measured on hardware. The current model flips single bits independently, so it does not cover one glitch upsetting several flip-flops, or all copies, at once. Version 2.0 asks one question: does adding timing change the verdict on one real protected block? |
-| **Approximate-SAD paper** | Research internship at NIT Delhi (summer 2026): approximate compressor cells in a shared 8x8 SAD datapath for video motion estimation, synthesised and run inside the x264 and x265 encoders. | **Simulation, synthesis and real encoders.** Manuscript in preparation, not yet submitted. The repository stays private until publication. |
+| **Approximate-SAD paper** | Research internship at NIT Delhi (summer 2026), co-authored manuscript: approximate compressor cells in a shared 8x8 SAD datapath for video motion estimation, synthesised and run inside the x264 and x265 encoders. | **Simulation, synthesis and real encoders.** Not yet published. The repository stays private until publication. |
 
 ### Supporting
 
-| Project | In one line | Honest status |
+| Project | In one line | Status |
 |---|---|---|
 | [**PhyRand**](https://github.com/Kavin-Re/PhyRand) | Zener-diode noise source on an STM32F401RE with Von Neumann debiasing, a health-tested key pipeline and a file vault. | **Hardware, source unvalidated.** A 1 MB capture has 7.9997 bits/byte Shannon entropy (computed with the repository's own analysis), and the same capture fails chi-square (p = 0.0009). The control run with the diode removed has not been done. |
 | [**FHSS-Link**](https://github.com/Kavin-Re/FHSS-Link) | Frequency-hopping link study: link and attacker simulators, a keyed SipHash-2-4 hop engine in Verilog, a C reference, and the HopBench schedule benchmark. | **Simulation, RTL and host C. Frozen.** An attacker model recovers a 16-bit LFSR hop schedule after 8 or 9 observed hops (exhaustive over all 65,535 seeds); the keyed schedule stays at chance against that attacker. Nothing has run on a radio. |
@@ -109,9 +109,9 @@ Every other repository on this account is frozen or archived, and its README say
 
 ## Currently
 
-- Working on GlitchSAT 2.0, the minimum version: one question (does adding timing change the verdict on one
-  real protected block?), one design, one short note.
-- Preparing the approximate-SAD manuscript for submission.
+- Working on GlitchSAT 2.0: does adding timing change the verdict of a fault search on one real protected
+  block? One design, one short technical note.
+- Taking the co-authored approximate-SAD manuscript through to publication.
 - Looking for a role in embedded systems, digital design or hardware security.
 
 ## Contact
